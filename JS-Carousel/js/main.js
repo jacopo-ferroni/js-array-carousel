@@ -61,10 +61,57 @@ for (let i = 0; i < imageCollection.length; i++) {
         </div>
     `;
 }
+
 document.getElementsByClassName(`image-container`)[active].classList.toggle(`active`);
 document.getElementsByClassName(`thumb`)[active].classList.toggle(`active`);
 
-const btnUp = document.querySelector(`.prev`);
-const btnDw = document.querySelector(`.next`);
+const btnPrv = document.querySelector(`.prev`);
+const btnNxt = document.querySelector(`.next`);
+
+btnNxt.addEventListener (`click`, function() {
+
+    if(active === imageCollection.length - 1) {
+
+        active = 0;
+
+    }
+    else {
+        
+        active++;
+        
+    }
+
+
+    document.querySelector(`.image-container.active`).classList.toggle(`active`);
+    
+    document.querySelector(`.thumb.active`).classList.toggle(`active`);
+
+    document.getElementsByClassName(`image-container`)[active].classList.toggle(`active`);
+
+    document.getElementsByClassName(`thumb`)[active].classList.toggle(`active`);
+});
+
+btnPrv.addEventListener (`click`, function() {
+
+    if(active === 0) {
+
+        active = imageCollection.length - 1;
+
+    }
+    else {
+        
+        active--;
+        
+    }
+
+
+    document.querySelector(`.image-container.active`).classList.toggle(`active`);
+    
+    document.querySelector(`.thumb.active`).classList.toggle(`active`);
+
+    document.getElementsByClassName(`image-container`)[active].classList.toggle(`active`);
+
+    document.getElementsByClassName(`thumb`)[active].classList.toggle(`active`);
+});
 
 
