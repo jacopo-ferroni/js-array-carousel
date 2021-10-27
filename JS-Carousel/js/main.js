@@ -40,3 +40,31 @@ const textCollection = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ];
 
+const image = document.querySelector(`.images`);
+const image_aside = document.querySelector(`.thumbs`);
+let active = 1; /* indice active image */
+
+for (let i = 0; i < imageCollection.length; i++) {
+    image.innerHTML += `
+    <div class="image-container">
+    <img src="${imageCollection[i]}" alt="${imageCollection[i]}">
+    <div class="text">
+        <h3>${titleCollection[i]}</h3>
+        <p>${textCollection[i]}</p>
+    </div>
+    </div>
+    `
+    
+    image_aside.innerHTML += `
+        <div class="thumb">
+            <img src="${imageCollection[i]}" alt="Lorem">
+        </div>
+    `;
+}
+document.getElementsByClassName(`image-container`)[active].classList.toggle(`active`);
+document.getElementsByClassName(`thumb`)[active].classList.toggle(`active`);
+
+const btnUp = document.querySelector(`.prev`);
+const btnDw = document.querySelector(`.next`);
+
+
